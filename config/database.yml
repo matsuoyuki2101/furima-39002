@@ -19,6 +19,10 @@ default: &default
 
 development:
   <<: *default
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
   database: furima_39002_development
 
 # Warning: The database defined as "test" will be erased and
@@ -26,6 +30,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
   database: furima_39002_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -44,11 +52,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
+  adapter: postgresql
   database: furima_39002_production
   username: furima_39002
   password: <%= ENV['FURIMA_39002_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
