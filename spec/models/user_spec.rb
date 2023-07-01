@@ -129,12 +129,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
       it '名字(フリガナ)が空欄だと保存できない' do
-        @user.lastname_kana = ''
+        @user.last_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name kana can't be blank")
       end
       it '名前(フリガナ)が空欄だと保存できない' do
-        @user.firstname_kana = ''
+        @user.first_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("First name kana can't be blank")
       end
