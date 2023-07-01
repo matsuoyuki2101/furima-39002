@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   # extend ActiveHash::Associations::ActiveRecordExtensions
 
   # テーブルとのアソシエーション
-  # belongs_to :user
+   belongs_to :user
   # has_one    :order
   # has_many :comments
   
@@ -39,4 +39,4 @@ class Item < ApplicationRecord
   # validates :shipping_cost_id
   # validates :shipping_date_id
   # end
-# end
+ end
