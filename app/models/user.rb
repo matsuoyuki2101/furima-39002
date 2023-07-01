@@ -14,8 +14,8 @@ class User < ApplicationRecord
           # @含むこと・存在することはdeviseのデフォルト実装のため省略
     validates :email,    uniqueness: true
           # 全角ひらがな、全角カタカナ、漢字
-    validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+    validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥々一]+\z/}
+    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥々一]+\z/}
           # 全角カタカナ
     validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
