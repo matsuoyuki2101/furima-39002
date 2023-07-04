@@ -6,7 +6,7 @@ class Item < ApplicationRecord
    has_one    :order
   # has_many :comments
   
-   アクティブハッシュとのアソシエーション
+  # アクティブハッシュとのアソシエーション
    belongs_to :category
    belongs_to :prefecture
    belongs_to :item_status
@@ -17,19 +17,19 @@ class Item < ApplicationRecord
   # （items・active_storage_blobsテーブルを関連付け）
    has_one_attached :image
   
-  # with_options presence: true do
-  # validates :user_id
-  # validates :image
-  # validates :name
-  # validates :description
-  # validates :category_id
-  # validates :item_status_id
-  # validates :shipping_cost_id
-  # validates :prefecture_id
-  # validates :shipping_date_id
-  # 300円以上かつ9,999,999円以下で、半角数字でないと入力不可
-  # validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-  # end
+   with_options presence: true do
+   validates :user_id
+   validates :image
+   validates :name
+   validates :description
+   validates :category_id
+   validates :item_status_id
+   validates :shipping_cost_id
+   validates :prefecture_id
+   validates :shipping_date_id
+   # 300円以上かつ9,999,999円以下で、半角数字でないと入力不可
+   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+   end
   
   # ジャンルの選択が「--」の時は保存不可
    with_options numericality: { other_than: 0 } do
