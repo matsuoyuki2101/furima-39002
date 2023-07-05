@@ -5,9 +5,9 @@ class ItemsController < ApplicationController
   # 重複処理をまとめる
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @items = Item.includes(:user).order('created_at DESC')
-  end
+  # def index
+    # @items = Item.includes(:user).order('created_at DESC')
+  # end
 
    def new
      @item = Item.new
@@ -22,13 +22,13 @@ class ItemsController < ApplicationController
      end
    end
 
-   def edit
+   # def edit
      # ログインしているユーザーと同一であればeditファイルが読み込まれる
-     if @item.user_id == current_user.id && @item.order.nil?
-     else
-       redirect_to root_path
-     end
-   end
+     # if @item.user_id == current_user.id && @item.order.nil?
+     # else
+      # redirect_to root_path
+     # end
+   # end
 
   # def update
     # @item.update(item_params)
