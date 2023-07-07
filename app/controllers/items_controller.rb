@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   # 重複処理をまとめる
-   before_action :set_item, only: [:show, :edit, :update]
+   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
    def index
      @items = Item.includes(:user).order('created_at DESC')
@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
    def edit
      # ログインしているユーザーと同一であればeditファイルが読み込まれる
      if @item.user_id != current_user.id 
-      redirect_to root_path
+       redirect_to root_path
      end
    end
 
@@ -43,15 +43,15 @@ class ItemsController < ApplicationController
    def show
    end
 
-  # def destroy
+   def destroy
     # ログインしているユーザーと同一であればデータを削除する
-    # if @item.user_id == current_user.id
-      # @item.destroy
-      # redirect_to root_path
-    # else
-      # redirect_to root_path
-    # end
-  # end
+     if @item.user_id == current_user.id
+       @item.destroy
+       redirect_to root_path
+     else
+       redirect_to root_path
+     end
+   end
 
    private
 
