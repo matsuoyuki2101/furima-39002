@@ -13,9 +13,9 @@ class Item < ApplicationRecord
    belongs_to :shipping_cost
    belongs_to :shipping_date
   
-  # active_storageとのアソシエーション
-  # （items・active_storage_blobsテーブルを関連付け）
-   has_one_attached :image
+  
+  # （itemsテーブルを関連付け）
+   has_one_attached :images
   
    with_options presence: true do
   
