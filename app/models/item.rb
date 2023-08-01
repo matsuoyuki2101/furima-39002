@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   
   
   # （itemsテーブルを関連付け）
-   has_one_attached :images
+   has_one_attached :image
   
    with_options presence: true do
   
