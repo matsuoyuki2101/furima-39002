@@ -80,12 +80,12 @@ RSpec.describe OrderForm, type: :model do
       it '市区町村が空だと保存できないこと' do
         @order_form.city = nil
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("City can't be blank")
+        expect(@order_form.errors.full_messages).to include("市町村を入力してください")
       end
       it '番地が空だと保存できないこと' do
         @order_form.block = nil
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Block can't be blank")
+        expect(@order_form.errors.full_messages).to include("番地を入力してください")
       end
       it '電話番号が空だと保存できないこと' do
         @order_form.phone_number = nil
@@ -110,7 +110,7 @@ RSpec.describe OrderForm, type: :model do
       it 'トークンが空だと保存できないこと' do
         @order_form.token = nil
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Token can't be blank")
+        expect(@order_form.errors.full_messages).to include("クレジットカード情報を入力してください")
       end
     end
   end
