@@ -105,7 +105,7 @@ RSpec.describe Item, type: :model do
       it '発送までの日数の情報が空欄だと出品できない' do
         @item.shipping_date_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
+        expect(@item.errors.full_messages).to include("発送までの日数を入力してください")
       end
       it '価格が空欄だと出品できない' do
         @item.price = nil
