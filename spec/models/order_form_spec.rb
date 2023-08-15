@@ -95,17 +95,17 @@ RSpec.describe OrderForm, type: :model do
       it '電話番号にハイフンがあると保存できないこと' do
         @order_form.phone_number = '123 - 1234 - 1234'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_form.errors.full_messages).to include('Phone number は10桁以上11桁以内の半角数値で入力してください')
       end
       it '電話番号が12桁以上あると保存できないこと' do
         @order_form.phone_number = 12_345_678_910_123_111
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_form.errors.full_messages).to include('Phone number は10桁以上11桁以内の半角数値で入力してください')
       end
       it '電話番号が9桁以下であると保存できないこと' do
         @order_form.phone_number = 123_456_789
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_form.errors.full_messages).to include('Phone number は10桁以上11桁以内の半角数値で入力してください')
       end
       it 'トークンが空だと保存できないこと' do
         @order_form.token = nil
